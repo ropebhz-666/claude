@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VELOX — Bicicletas Speed</title>
+<style>
+  :root{--bg:#0b0d10;--card:#14181d;--fg:#f2f4f7;--mut:#8b94a1;--acc:#ff3d2e;--acc2:#ffb020}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--fg);font-family:system-ui,Segoe UI,Roboto,sans-serif;line-height:1.5}
+  a{color:inherit;text-decoration:none}
+  header{position:fixed;inset:0 0 auto 0;display:flex;justify-content:space-between;align-items:center;padding:16px 5vw;background:linear-gradient(#0b0d10cc,transparent);z-index:10;backdrop-filter:blur(6px)}
+  .logo{font-weight:900;letter-spacing:.2em;font-size:1.2rem}.logo b{color:var(--acc)}
+  nav a{margin-left:24px;color:var(--mut);font-size:.9rem;transition:.2s}nav a:hover{color:var(--fg)}
+  .hero{min-height:100vh;display:grid;place-items:center;text-align:center;padding:120px 5vw 60px;position:relative;overflow:hidden;
+    background:radial-gradient(ellipse at 70% 30%,#ff3d2e22,transparent 60%),radial-gradient(ellipse at 20% 80%,#ffb02015,transparent 55%)}
+  .hero h1{font-size:clamp(3rem,10vw,8rem);font-weight:900;line-height:.95;letter-spacing:-.03em;font-style:italic}
+  .hero h1 span{background:linear-gradient(90deg,var(--acc),var(--acc2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p{max-width:560px;margin:24px auto 32px;color:var(--mut);font-size:1.1rem}
+  .btn{display:inline-block;padding:14px 32px;border-radius:999px;background:var(--acc);font-weight:700;transition:.2s}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px #ff3d2e55}
+  .bike{width:min(720px,90vw);margin:40px auto 0;animation:ride 4s ease-in-out infinite alternate}
+  @keyframes ride{from{transform:translateX(-18px)}to{transform:translateX(18px)}}
+  .wheel{transform-origin:center;transform-box:fill-box;animation:spin 1.2s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:#222831;max-width:1000px;margin:0 auto}
+  .stats div{background:var(--bg);padding:40px 20px;text-align:center}
+  .stats strong{display:block;font-size:2.6rem;color:var(--acc);font-weight:900}
+  .stats span{color:var(--mut);font-size:.85rem;text-transform:uppercase;letter-spacing:.1em}
+  section{padding:90px 5vw;max-width:1200px;margin:0 auto}
+  h2{font-size:clamp(1.8rem,4vw,3rem);font-weight:900;margin-bottom:12px;font-style:italic}
+  .sub{color:var(--mut);margin-bottom:48px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+  .card{background:var(--card);border:1px solid #232a33;border-radius:18px;padding:28px;transition:.25s}
+  .card:hover{transform:translateY(-6px);border-color:var(--acc)}
+  .card .tag{display:inline-block;font-size:.7rem;padding:3px 10px;border-radius:99px;background:#ff3d2e22;color:var(--acc);font-weight:700;letter-spacing:.1em}
+  .card h3{margin:14px 0 6px;font-size:1.4rem}
+  .card ul{list-style:none;color:var(--mut);font-size:.92rem;margin:14px 0}
+  .card li{padding:4px 0;border-bottom:1px solid #20262e}
+  .price{font-size:1.5rem;font-weight:800}
+  .feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:32px}
+  .feat h4{color:var(--acc2);margin-bottom:6px}.feat p{color:var(--mut);font-size:.95rem}
+  .calc{background:var(--card);border-radius:20px;padding:32px;max-width:520px}
+  .calc label{display:block;color:var(--mut);font-size:.85rem;margin-top:16px}
+  .calc input{width:100%;accent-color:var(--acc)}
+  .calc output{display:block;margin-top:24px;font-size:2rem;font-weight:900;color:var(--acc)}
+  footer{text-align:center;padding:50px 5vw;color:var(--mut);font-size:.85rem;border-top:1px solid #1c2229}
+  @media(max-width:640px){nav{display:none}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">VEL<b>O</b>X</div>
+  <nav><a href="#modelos">Modelos</a><a href="#tech">Tecnologia</a><a href="#calc">Calculadora</a></nav>
+</header>
+
+<div class="hero">
+  <div>
+    <h1>NASCIDA PARA<br><span>VELOCIDADE</span></h1>
+    <p>Bicicletas speed ultraleves, aerodinâmicas e feitas para quem vive de cada segundo no asfalto.</p>
+    <a class="btn" href="#modelos">Ver modelos</a>
+    <svg class="bike" viewBox="0 0 400 200" fill="none" stroke="#f2f4f7" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+      <g class="wheel" style="transform-origin:90px 140px"><circle cx="90" cy="140" r="52"/><path d="M90 88v104M38 140h104M53 103l74 74M127 103l-74 74" stroke-width="1.5" stroke="#8b94a1"/></g>
+      <g class="wheel"><circle cx="310" cy="140" r="52"/><path d="M310 88v104M258 140h104M273 103l74 74M347 103l-74 74" stroke-width="1.5" stroke="#8b94a1"/></g>
+      <path d="M90 140 L160 70 L280 70 L310 140 M160 70 L200 140 L90 140 M200 140 L280 70 M160 70 L150 55 M138 55h28 M280 70 L270 45 L295 40" stroke="#ff3d2e"/>
+      <circle cx="200" cy="140" r="9"/>
+    </svg>
+  </div>
+</div>
+
+<div class="stats">
+  <div><strong>6.8 kg</strong><span>Peso do quadro</span></div>
+  <div><strong>+52 km/h</strong><span>Velocidade média pelotão</span></div>
+  <div><strong>24 v</strong><span>Marchas eletrônicas</span></div>
+  <div><strong>-18 W</strong><span>Ganho aerodinâmico</span></div>
+</div>
+
+<section id="modelos">
+  <h2>MODELOS</h2>
+  <p class="sub">Do treino diário à linha de chegada.</p>
+  <div class="grid">
+    <article class="card"><span class="tag">ENTRADA</span><h3>Velox Sprint</h3>
+      <ul><li>Quadro de alumínio 6061</li><li>Grupo 2x11</li><li>Rodas de perfil 30 mm</li></ul>
+      <div class="price">R$ 8.900</div></article>
+    <article class="card"><span class="tag">PERFORMANCE</span><h3>Velox Aero R</h3>
+      <ul><li>Carbono T800 aerodinâmico</li><li>Grupo 2x12 eletrônico</li><li>Rodas de perfil 50 mm</li></ul>
+      <div class="price">R$ 27.500</div></article>
+    <article class="card"><span class="tag">PRO</span><h3>Velox Apex SL</h3>
+      <ul><li>Carbono T1000 · 6,8 kg</li><li>Grupo topo wireless</li><li>Medidor de potência dual</li></ul>
+      <div class="price">R$ 59.900</div></article>
+  </div>
+</section>
+
+<section id="tech">
+  <h2>TECNOLOGIA</h2>
+  <p class="sub">Cada gramo e cada grau de ângulo pensados para ir mais rápido.</p>
+  <div class="feat">
+    <div><h4>Aerodinâmica</h4><p>Tubos em perfil de aerofólio e cabos internos reduzem o arrasto em até 18 W a 45 km/h.</p></div>
+    <div><h4>Carbono de alto módulo</h4><p>Rigidez no movimento central e conforto vertical onde importa.</p></div>
+    <div><h4>Geometria race</h4><p>Posição agressiva e estável para sprints, descidas e curvas em alta velocidade.</p></div>
+    <div><h4>Freios a disco</h4><p>Frenagem previsível em qualquer clima, com modulação precisa.</p></div>
+  </div>
+</section>
+
+<section id="calc">
+  <h2>QUANTO TEMPO?</h2>
+  <p class="sub">Calcule o tempo de um percurso pela sua velocidade média.</p>
+  <div class="calc">
+    <label>Distância: <b id="dv">40</b> km</label>
+    <input id="d" type="range" min="10" max="200" value="40">
+    <label>Velocidade média: <b id="sv">32</b> km/h</label>
+    <input id="s" type="range" min="15" max="55" value="32">
+    <output id="out"></output>
+  </div>
+</section>
+
+<footer>© 2026 VELOX · Página de teste · Pedale com segurança, use capacete.</footer>
+
+<script>
+  const d=document.getElementById('d'),s=document.getElementById('s'),o=document.getElementById('out');
+  function upd(){
+    document.getElementById('dv').textContent=d.value;
+    document.getElementById('sv').textContent=s.value;
+    const m=Math.round(d.value/s.value*60);
+    o.textContent=Math.floor(m/60)+'h '+String(m%60).padStart(2,'0')+'min';
+  }
+  d.oninput=s.oninput=upd;upd();
+</script>
+</body>
+</html>
